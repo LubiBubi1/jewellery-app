@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const dotenv = require('dotenv');
+const db = require('./src/db');
 
 dotenv.config();
 
@@ -12,6 +13,15 @@ app.use(express.urlencoded({ extended: true }));
 
 app.get('/', (req, res) => {
   res.json({ message: 'Jewellery App API is running!' });
+});
+
+app.get('/api/test', async (req, res) => {
+  try {
+    const [rows] = await db.query('SELECT 1 + 1 AS result');
+    res.json({ message: 'Database connected!', result: rows[0].result });
+  } catch (error) {
+    res.status(500).json({ message: 'Database connection failed', error: error.message });
+  }
 });
 
 const PORT = process.env.PORT || 5000;
