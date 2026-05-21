@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const dotenv = require('dotenv');
 const db = require('./src/db');
+const authRoutes = require('./src/routes/authRoutes');
 
 dotenv.config();
 
@@ -15,6 +16,7 @@ app.get('/', (req, res) => {
   res.json({ message: 'Jewellery App API is running!' });
 });
 
+app.use('/api/auth', authRoutes);
 app.get('/api/test', async (req, res) => {
   try {
     const [rows] = await db.query('SELECT 1 + 1 AS result');
