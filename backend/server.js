@@ -3,6 +3,8 @@ const cors = require('cors');
 const dotenv = require('dotenv');
 const db = require('./src/db');
 const authRoutes = require('./src/routes/authRoutes');
+const categoryRoutes = require('./src/routes/categoryRoutes');
+const productRoutes = require('./src/routes/productRoutes');
 
 dotenv.config();
 
@@ -20,6 +22,9 @@ app.get('/', (req, res) => {
 });
 
 app.use('/api/auth', authRoutes);
+app.use('/api/categories', categoryRoutes);
+app.use('/api/products', productRoutes);
+
 app.get('/api/test', async (req, res) => {
   try {
     const [rows] = await db.query('SELECT 1 + 1 AS result');
