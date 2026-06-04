@@ -48,12 +48,12 @@ const getProductById = async (req, res) => {
 
 // POST /api/product (admin only)
 const createProduct = async (req, res) => {
-  const { name, description, price, stock, category_id, image_url } = req.body;
+  const { name, description, price, stock_quantity, category_id, image } = req.body;
   if (!name || !price) return res.status(400).json({ message: 'Name and price are required' });
   try {
     const [result] = await db.query(
-      'INSERT INTO product (name, description, price, stock, category_id, image_url) VALUES (?, ?, ?, ?, ?, ?)',
-      [name, description || null, price, stock || 0, category_id || null, image_url || null]
+      'INSERT INTO product (name, description, price, stock_quantity, category_id, image) VALUES (?, ?, ?, ?, ?, ?)',
+      [name, description || null, price, stock_quantity || 0, category_id || null, image || null]
     );
     res.status(201).json({ message: 'Product created', id: result.insertId });
   } catch (err) {
@@ -63,11 +63,11 @@ const createProduct = async (req, res) => {
 
 // PUT /api/product/:id (admin only)
 const updateProduct = async (req, res) => {
-  const { name, description, price, stock, category_id, image_url } = req.body;
+  const { name, description, price, stock_quantity, category_id, image } = req.body;
   try {
     const [result] = await db.query(
-      'UPDATE product SET name = ?, description = ?, price = ?, stock = ?, category_id = ?, image_url = ? WHERE id = ?',
-      [name, description || null, price, stock || 0, category_id || null, image_url || null, req.params.id]
+      'UPDATE product SET name = ?, description = ?, price = ?, stock_quantity = ?, category_id = ?, image = ? WHERE id = ?',
+      [name, description || null, price, stock_quantity || 0, category_id || null, image || null, req.params.id]
     );
     if (result.affectedRows === 0) return res.status(404).json({ message: 'Product not found' });
     res.json({ message: 'Product updated' });
