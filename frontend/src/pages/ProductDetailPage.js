@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import API from '../api/axios';
+import { useCart } from '../context/CartContext';
 
 const ProductDetailPage = () => {
   const { id } = useParams();
@@ -8,6 +9,7 @@ const ProductDetailPage = () => {
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
+  const { addToCart } = useCart();
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -86,7 +88,9 @@ const ProductDetailPage = () => {
               )}
             </div>
 
-            <button className="bg-yellow-700 hover:bg-yellow-800 text-white px-8 py-3 rounded-lg text-sm font-medium transition">
+            <button
+              onClick={() => addToCart(product)}
+              className="bg-yellow-700 hover:bg-yellow-800 text-white px-8 py-3 rounded-lg text-sm font-medium transition">
               Add to cart
             </button>
           </div>
