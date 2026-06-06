@@ -10,6 +10,8 @@ import ProductsPage from './pages/ProductsPage';
 import ProductDetailPage from './pages/ProductDetailPage';
 import ServicesPage from './pages/ServicesPage';
 import ServiceDetailPage from './pages/ServiceDetailPage';
+import ServiceRequestPage from './pages/ServiceRequestPage';
+import MyRequestsPage from './pages/MyRequestsPage';
 import CartPage from './pages/CartPage';
 import CheckoutPage from './pages/CheckoutPage';
 import OrderConfirmationPage from './pages/OrderConfirmationPage';
@@ -27,7 +29,9 @@ function App() {
             <Route path="/products" element={<ProductsPage />} />
             <Route path="/products/:id" element={<ProductDetailPage />} />
             <Route path="/services" element={<ServicesPage />} />
+            <Route path="/services/request" element={<ServiceRequestPage />} />
             <Route path="/services/:id" element={<ServiceDetailPage />} />
+            <Route path="/my-requests" element={<MyRequestsPage />} />
             <Route path="/cart" element={<CartPage />} />
             <Route path="/checkout" element={<CheckoutPage />} />
             <Route path="/order-confirmation/:id" element={<OrderConfirmationPage />} />
