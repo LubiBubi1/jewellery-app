@@ -6,6 +6,7 @@ const authRoutes = require('./src/routes/authRoutes');
 const categoryRoutes = require('./src/routes/categoryRoutes');
 const productRoutes = require('./src/routes/productRoutes');
 const serviceRoutes = require('./src/routes/serviceRoutes');
+const orderRoutes = require('./src/routes/orderRoutes');
 
 dotenv.config();
 
@@ -26,6 +27,7 @@ app.use('/api/auth', authRoutes);
 app.use('/api/categories', categoryRoutes);
 app.use('/api/products', productRoutes);
 app.use('/api/services', serviceRoutes);
+app.use('/api/orders', orderRoutes);
 
 app.get('/api/test', async (req, res) => {
   try {
