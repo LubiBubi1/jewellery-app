@@ -34,7 +34,7 @@ const Navbar = () => {
           <Link to="/cart" className="text-gray-600 hover:text-gray-900">🛒</Link>
           {user ? (
             <div className="flex items-center gap-3">
-              <span className="text-sm text-gray-700">Hi, {user.first_name}</span>
+              <Link to="/profile" className="text-sm text-gray-700 hover:text-yellow-700">Hi, {user.first_name}</Link>
               <button
                 onClick={handleLogout}
                 className="text-sm text-gray-600 hover:text-gray-900"

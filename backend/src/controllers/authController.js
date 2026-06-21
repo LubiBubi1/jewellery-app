@@ -92,4 +92,19 @@ const getMe = async (req, res) => {
   }
 };
 
-module.exports = { register, login, getMe };
+// Update profile
+const updateProfile = async (req, res) => {
+  const { first_name, last_name, phone } = req.body;
+  try {
+    const [result] = await db.query(
+      'UPDATE user SET first_name = ?, last_name = ?, phone = ? WHERE id = ?',
+      [first_name, last_name, phone || null, req.user.id]
+    );
+    if (result.affectedRows === 0) return res.status(404).json({ message: 'User not found' });
+    res.json({ message: 'Profile updated successfully' });
+  } catch (error) {
+    res.status(500).json({ message: 'Server error', error: error.message });
+  }
+};
+
+module.exports = { register, login, getMe, updateProfile };
