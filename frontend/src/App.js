@@ -16,6 +16,15 @@ import CartPage from './pages/CartPage';
 import CheckoutPage from './pages/CheckoutPage';
 import OrderConfirmationPage from './pages/OrderConfirmationPage';
 import ProfilePage from './pages/ProfilePage';
+import AdminDashboard from './pages/admin/AdminDashboard';
+import AdminProducts from './pages/admin/AdminProducts';
+import AdminCategories from './pages/admin/AdminCategories';
+import AdminServices from './pages/admin/AdminServices';
+import AdminOrders from './pages/admin/AdminOrders';
+import AdminServiceRequests from './pages/admin/AdminServiceRequests';
+import AdminReviews from './pages/admin/AdminReviews';
+import AdminUsers from './pages/admin/AdminUsers';
+import AboutPage from './pages/AboutPage';
 
 function App() {
   return (
@@ -37,6 +46,15 @@ function App() {
             <Route path="/checkout" element={<CheckoutPage />} />
             <Route path="/order-confirmation/:id" element={<OrderConfirmationPage />} />
             <Route path="/profile" element={<ProfilePage />} />
+            <Route path="/admin" element={<AdminDashboard />} />
+            <Route path="/admin/products" element={<AdminProducts />} />
+            <Route path="/admin/categories" element={<AdminCategories />} />
+            <Route path="/admin/services" element={<AdminServices />} />
+            <Route path="/admin/orders" element={<AdminOrders />} />
+            <Route path="/admin/service-requests" element={<AdminServiceRequests />} />
+            <Route path="/admin/reviews" element={<AdminReviews />} />
+            <Route path="/admin/users" element={<AdminUsers />} />
+            <Route path="/about" element={<AboutPage />} />
           </Routes>
         </Router>
       </CartProvider>

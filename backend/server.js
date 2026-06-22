@@ -9,6 +9,7 @@ const serviceRoutes = require('./src/routes/serviceRoutes');
 const orderRoutes = require('./src/routes/orderRoutes');
 const serviceRequestRoutes = require('./src/routes/serviceRequestRoutes');
 const reviewRoutes = require('./src/routes/reviewRoutes');
+const userRoutes = require('./src/routes/userRoutes');
 
 dotenv.config();
 
@@ -32,6 +33,7 @@ app.use('/api/services', serviceRoutes);
 app.use('/api/orders', orderRoutes);
 app.use('/api/service-requests', serviceRequestRoutes);
 app.use('/api/reviews', reviewRoutes);
+app.use('/api/users', userRoutes);
 
 app.get('/api/test', async (req, res) => {
   try {
