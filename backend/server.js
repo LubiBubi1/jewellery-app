@@ -45,7 +45,7 @@ app.get('/api/test', async (req, res) => {
 // Serve React frontend
 const reactBuildPath = path.join(__dirname, '../frontend/build');
 app.use(express.static(reactBuildPath));
-app.get('/*splat', (req, res) => {
+app.get(/^(?!\/api).*$/, (req, res) => {
   res.sendFile(path.join(reactBuildPath, 'index.html'));
 });
 
