@@ -1,7 +1,9 @@
 import axios from 'axios';
 
 const API = axios.create({
-  baseURL: 'http://localhost:5000/api',
+  baseURL: window.location.hostname === 'localhost' 
+    ? 'http://localhost:5000/api'
+    : 'http://88.200.63.148/api',
 });
 
 API.interceptors.request.use((config) => {
