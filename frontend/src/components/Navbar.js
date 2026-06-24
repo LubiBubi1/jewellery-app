@@ -23,7 +23,7 @@ const Navbar = () => {
         {/* Nav Links */}
         <div className="hidden md:flex items-center gap-8">
           <Link to="/" className="text-gray-600 hover:text-gray-900 text-sm">Home</Link>
-          <Link to="/shop" className="text-gray-600 hover:text-gray-900 text-sm">Shop</Link>
+          <Link to="/products" className="text-gray-600 hover:text-gray-900 text-sm">Shop</Link>
           <Link to="/services" className="text-gray-600 hover:text-gray-900 text-sm">Services</Link>
           <Link to="/about" className="text-gray-600 hover:text-gray-900 text-sm">About</Link>
         </div>
